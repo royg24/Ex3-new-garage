@@ -41,13 +41,13 @@ namespace Ex03.GarageLogic
                 return m_Wheels;
             }
         }
-        public virtual void FillVehicleData(ref List<String> io_Data)
+        public virtual void FillVehicleData(ref List<string> io_Data)
         {
             m_ModelName = io_Data[0];
             fillPrecentageOfEnergyLeft(io_Data[1]);
             io_Data = io_Data.Skip(2).ToList();
         }
-        private void fillPrecentageOfEnergyLeft(String i_PrecentageOfEnergyLeft)
+        private void fillPrecentageOfEnergyLeft(string i_PrecentageOfEnergyLeft)
         {
             float precenatgeOfEnergyLeft;
             if(float.TryParse(i_PrecentageOfEnergyLeft, out precenatgeOfEnergyLeft) == true)

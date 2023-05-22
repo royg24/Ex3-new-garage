@@ -53,7 +53,18 @@ namespace Ex03.ConsoleUI
             Console.Clear();
             Console.WriteLine("Please enter the license plate's ID of your vehicle:");
             string licensePlateID = Console.ReadLine();
-            i_Garage.CheckIfLicensePlateIDExcistsOrNot(licensePlateID, i_ExcistOrNot);
+            if(i_ExcistOrNot == true)
+            {
+                bool alreadyExists = i_Garage.CheckIfLicensePlateIDExcists(licensePlateID);
+                if (alreadyExists == true)
+                {
+                    UserInterface.MessageIfLicensePlateIDExistsAndChanged(licensePlateID);
+                }
+            }
+            else
+            {
+                i_Garage.CheckIfLicensePlateIDnotExcists(licensePlateID);
+            }
             return licensePlateID;
         }
         internal static eVehicleStatus GetVehicleStatus(Garage i_Garage)

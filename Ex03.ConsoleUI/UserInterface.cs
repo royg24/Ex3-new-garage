@@ -214,5 +214,11 @@ Please choose one of the following options:
             } while (returnString != k_ReturnString);
             Console.Clear();
         }
+        internal static void MessageIfLicensePlateIDExistsAndChanged(string i_LicensePlateID)
+        {
+            string message = string.Format("Vehicle with license plate ID {0} status changed to under repair", i_LicensePlateID);
+            Console.WriteLine(message);
+            waitToReturn();
+        }
     }
 }

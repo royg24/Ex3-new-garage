@@ -102,10 +102,20 @@ namespace Ex03.GarageLogic
         {
 
         }
-        public void CheckIfLicensePlateIDExcistsOrNot(string i_licensePlateId, bool i_ExcistOrNot)
+        public bool CheckIfLicensePlateIDExcists(string i_licensePlateId)
         {
-             if(VehiclesInGarage.ContainsKey(i_licensePlateId) == i_ExcistOrNot)
-            { 
+            bool result = false;
+             if(VehiclesInGarage.ContainsKey(i_licensePlateId) == true)
+            {
+                ChangeVehicleStatus(i_licensePlateId, eVehicleStatus.underRepair);
+                result = true;
+            }
+             return result;
+        }
+        public void CheckIfLicensePlateIDnotExcists(string i_licensePlateId)
+        {
+            if (VehiclesInGarage.ContainsKey(i_licensePlateId) == false)
+            {
                 throw new ArgumentException("This license plate ID is not ok. ");
             }
         }
